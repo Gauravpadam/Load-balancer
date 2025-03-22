@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  server1:
+    image: llm-server
+    ports:
+      - "8080:8080"
+    networks:
+      - llm-network
+
+  server2:
+    image: llm-server
+    ports:
+      - "8081:8080"
+    networks:
+      - llm-network
+
+  server3:
+    image: llm-server
+    ports:
+      - "8082:8080"
+    networks:
+      - llm-network
+
+  ollama:
+    image: ollama/ollama
+    ports:
+      - "11434:11434"
+    networks:
+      - llm-network
+
+networks:
+  llm-network:
+    driver: bridge
