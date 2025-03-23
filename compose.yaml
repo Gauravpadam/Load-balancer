@@ -21,6 +21,13 @@ services:
       - "8082:8080"
     networks:
       - llm-network
+    
+  lbs:
+    image: load-balancing-server
+    ports:
+      - "5173:5173"
+    networks:
+      - llm-network
 
   ollama:
     image: ollama/ollama
